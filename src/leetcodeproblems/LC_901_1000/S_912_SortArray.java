@@ -1,6 +1,9 @@
+package leetcodeproblems.LC_901_1000;
+
 import java.util.Arrays;
 
-public class SortArray {
+//912. [Sort an Array](https://leetcode.com/problems/sort-an-array)
+public class S_912_SortArray {
     public int[] sortArray(int[] nums) {
         if(nums.length <= 1){
             return nums;
@@ -75,12 +78,12 @@ public class SortArray {
 
         if(max != root) { // 需要进行调整
             swap(nums, max, root);
-            adaptMaxHeap(nums, max, len);
+            adaptMaxHeap(nums, max, len); // 需要调整的是max的子树，而不是重复root的子树。
         }
     }
 
     public static void main(String[] args) {
-        SortArray ex = new SortArray();
+        S_912_SortArray ex = new S_912_SortArray();
         int[] nums = {-4, 0, 7, 4, 9, -5, -1, 0, -7, -1};
         System.out.println(Arrays.toString(nums));
         ex.sortArray(nums);

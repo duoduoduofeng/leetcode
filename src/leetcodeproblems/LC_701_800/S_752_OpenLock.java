@@ -1,16 +1,19 @@
+package leetcodeproblems.LC_701_800;
+
 import java.util.*;
 
-public class OpenLock {
+//752. [Open the Lock](https://leetcode.com/problems/open-the-lock)
+public class S_752_OpenLock {
     public int openLock(String[] deadends, String target) {
         Set<String> deadendsList = new HashSet<>(Arrays.asList(deadends)); // set to speed up
         String start = "0000";
 
-        if(start.equals(target)) {
-            return 0;
+        if(deadendsList.contains(start) || deadendsList.contains(target)) {
+            return -1; // cannot reach
         }
 
-        if(deadendsList.contains(target)) {
-            return -1; // cannot reach
+        if(start.equals(target)) {
+            return 0;
         }
 
         Queue<String> states = new LinkedList<>();
@@ -43,7 +46,7 @@ public class OpenLock {
 
                     // minus
                     newc = c == 0? 9: c - 1;
-                    curStateChars[i] = (char)(newc + '0');
+                    curStateChars[i] = (char)(newc + '0'); // here must plus '0', or newc will be turned into 'A' but not '1' when newc=1
 
                     newStateStr = String.valueOf(curStateChars);
                     if(!visited.contains(newStateStr) && !deadendsList.contains(newStateStr)) {
@@ -61,7 +64,7 @@ public class OpenLock {
     }
 
     public static void main(String[] args) {
-        OpenLock ex = new OpenLock();
+        S_752_OpenLock ex = new S_752_OpenLock();
 //        String target = "0202";
 //        String[] deadends = {"0201","0101","0102","1212","2002"};
         String target = "8888";

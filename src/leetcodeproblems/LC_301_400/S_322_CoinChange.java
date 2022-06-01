@@ -1,4 +1,7 @@
-public class Solution {
+package leetcodeproblems.LC_301_400;
+
+//322. [Coin Change](https://leetcode.com/problems/coin-change)
+public class S_322_CoinChange {
     public int coinChange(int[] coins, int amount) {
         if(amount <= 0) {
             return 0;
@@ -16,7 +19,10 @@ public class Solution {
         steps[0] = 0;
 
         for(int i = 1; i <= amount; i++) {
-            for(int j = 0; j < coins.length && coins[j] <= i; j++) {
+            for(int j = 0; j < coins.length; j++) {
+                if(coins[j] > i) {
+                    continue;
+                }
                 int c1 = steps[i];
                 int c2 = steps[i - coins[j]] + 1;
                 steps[i] = Math.min(c1, c2);
@@ -27,7 +33,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution ex = new Solution();
+        S_322_CoinChange ex = new S_322_CoinChange();
         int steps = ex.coinChange(new int[]{474, 83, 404, 3}, 264);
         System.out.print(steps);
     }
