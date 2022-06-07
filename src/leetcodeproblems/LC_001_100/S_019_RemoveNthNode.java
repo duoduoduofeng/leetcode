@@ -2,9 +2,10 @@ package leetcodeproblems.LC_001_100;
 
 import datastructures.ListNode;
 
+//https://leetcode.com/problems/remove-nth-node-from-end-of-list/submissions/
 public class S_019_RemoveNthNode {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        // 题目已经保证了 1<=n<=size
+        // 1<=n<=size is guaranteed
         if(head == null || head.next == null) {
             return null;
         }
