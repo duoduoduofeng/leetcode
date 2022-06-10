@@ -3,6 +3,7 @@ package leetcodeproblems.LC_201_300;
 import datastructures.ListNode;
 
 //https://leetcode.com/problems/palindrome-linked-list/
+// no need to judge even or odd number of nodes? https://blog.csdn.net/Just_do_myself/article/details/119827059
 public class S_234_PalindromeLinkedList {
     public boolean isPalindrome(ListNode head) {
         // edge cases
