@@ -11,6 +11,45 @@ public class S_234_PalindromeLinkedList {
             return true;
         }
 
+        // more elegant way, no need to judge whether the number of nodes is even or odd.
+        ListNode fast = head, slow = head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        // slow is the start of the second half
+        ListNode secondStart = reverse(slow);
+        ListNode firstStart = head;
+
+        while(secondStart != null) {
+            if(firstStart.val != secondStart.val) {
+                return false;
+            }
+            firstStart = firstStart.next;
+            secondStart = secondStart.next;
+        }
+
+        return true;
+    }
+
+    private ListNode reverse(ListNode head) {
+        ListNode p = head;
+        ListNode pre = null; // it's important to set the original father of head as null.
+        ListNode next;
+
+        while(p != null) {
+            next = p.next;
+            p.next = pre;
+            pre = p;
+            p = next;
+        }
+
+        return pre;
+    }
+
+    @Deprecated
+    private boolean judge(ListNode head) {
         // general
         int len = 0;
         ListNode p = head;
@@ -67,8 +106,8 @@ public class S_234_PalindromeLinkedList {
         S_234_PalindromeLinkedList ex = new S_234_PalindromeLinkedList();
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
-        head.next.next = new ListNode(2);
-        head.next.next.next = new ListNode(1);
+//        head.next.next = new ListNode(2);
+//        head.next.next.next = new ListNode(1);
 
         boolean isPalin = ex.isPalindrome(head);
         System.out.println(isPalin);
