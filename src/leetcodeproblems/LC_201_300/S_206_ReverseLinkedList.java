@@ -32,7 +32,8 @@ public class S_206_ReverseLinkedList {
 
         // more elegant non-recursive way
         ListNode node = head;
-        ListNode pre = null, next = null;
+        ListNode pre = null;
+        ListNode next;
 
         while(node != null) {
             next = node.next;
