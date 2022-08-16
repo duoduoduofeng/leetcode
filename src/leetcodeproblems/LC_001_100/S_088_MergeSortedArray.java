@@ -18,10 +18,12 @@ public class S_088_MergeSortedArray {
 
         if(j >= 0) {
             while(j >= 0) {
-                nums1[i + j + 1] = nums2[j--];
+//                nums1[i + j + 1] = nums2[j--];
+                nums1[j] = nums2[j];
+                j--;
             }
         }
 
-        return;
+//        return;
     }
 }

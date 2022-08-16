@@ -19,6 +19,7 @@ public class S_001_TwoSum {
             if(arr.containsKey(another)) {
                 rs[0] = i;
                 rs[1] = arr.get(another);
+                return rs;
             } else {
                 if(!arr.containsKey(nums[i])){
                     arr.put(nums[i], i);

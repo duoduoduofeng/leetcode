@@ -12,27 +12,27 @@ public class S_021_MergeTwoSortedLists {
             return list1;
         }
 
-        ListNode dummy = new ListNode(-1);
-        ListNode p = dummy;
+        ListNode p = list1;
+        ListNode q = list2;
+        ListNode rs = new ListNode(-1);
+        ListNode dummy = rs;
 
-        while(list1 != null && list2 != null) {
-            if(list1.val <= list2.val) {
-                p.next = list1;
-                list1 = list1.next;
+        while(p != null && q != null) {
+            if(p.val <= q.val) {
+                rs.next = p;
+                p = p.next;
             } else {
-                p.next = list2;
-                list2 = list2.next;
+                rs.next = q;
+                q = q.next;
             }
-
-            p = p.next;
+            rs = rs.next;
         }
 
-        if(list1 != null) {
-            p.next = list1;
+        if(p != null) {
+            rs.next = p;
         }
-
-        if(list2 != null) {
-            p.next = list2;
+        if(q != null) {
+            rs.next = q;
         }
 
         return dummy.next;
