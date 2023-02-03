@@ -24,7 +24,7 @@ public class S_154_FindMinInRotatedArrayII {
                 start = mid + 1;
             } else if(nums[start] == nums[mid]) {
                 int min = start;
-                for(int i = start + 1; i <= end; i++) { // 需要将start到end区间完整遍历，不真是start到mid
+                for(int i = start + 1; i <= end; i++) { // 需要将start到end区间完整遍历，不止是start到mid
                     if(nums[i] < nums[min]) {
                         min = i;
                     }

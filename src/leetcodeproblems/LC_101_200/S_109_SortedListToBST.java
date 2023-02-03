@@ -26,7 +26,7 @@ public class S_109_SortedListToBST {
 
         pre.next = null;
         TreeNode root = new TreeNode(slow.val);
-        root.left = sortedListToBST(head); // the list must be changed, so use head not its copy.
+        root.left = sortedListToBST(head); // the list must be changed, so use head but not its copy.
         root.right = sortedListToBST(slow.next);
 
         return root;

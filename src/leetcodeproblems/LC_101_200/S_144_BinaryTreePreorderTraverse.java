@@ -25,6 +25,7 @@ public class S_144_BinaryTreePreorderTraverse {
                 p = p.left;
             } else {
                 p = nodes.pop();
+                // Cannot add p.right null judgement, which will incur non-stop loop since p is never empty.
                 p = p.right; // The next time in while loop, p.right will be judged whether null.
             }
         }

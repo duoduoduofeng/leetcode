@@ -15,7 +15,7 @@ public class S_1143_LongestCommonSubseq {
             int old1 = lcs[0];
             lcs[0] = 0;
             for(int j = 1; j <= n; j++) {
-                int old2 = lcs[j];
+                int tmp = lcs[j];
 
                 int common = 0;
                 if(text1.charAt(i-1) == text2.charAt(j-1)) {
@@ -24,7 +24,7 @@ public class S_1143_LongestCommonSubseq {
 
                 lcs[j] = Math.max(old1 + common, Math.max(lcs[j-1], lcs[j]));
 
-                old1 = old2;
+                old1 = tmp;
             }
         }
 

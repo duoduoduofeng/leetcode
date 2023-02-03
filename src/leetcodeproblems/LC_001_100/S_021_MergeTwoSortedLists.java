@@ -13,7 +13,7 @@ public class S_021_MergeTwoSortedLists {
         }
 
         ListNode p = list1;
-        ListNode q = list2;
+        ListNode q = list2; // Is it necessary to copy list1 and list2? Not working...
         ListNode rs = new ListNode(-1);
         ListNode dummy = rs;
 

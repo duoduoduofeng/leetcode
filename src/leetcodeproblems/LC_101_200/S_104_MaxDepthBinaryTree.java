@@ -9,18 +9,19 @@ import java.util.Queue;
 
 public class S_104_MaxDepthBinaryTree {
     public int maxDepth(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return 0;
         }
 
-        // if(root.left == null && root.right == null) {
-        //     return 1;
-        // }
+         if(root.left == null && root.right == null) {
+             return 1;
+         }
 
-        // recursive way
-        // return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+         return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    }
 
-        // non-recursive way
+    // non-recursive way
+    public int maxDepth2(TreeNode root) {
         Queue<TreeNode> nodes = new LinkedList<TreeNode>();
         nodes.add(root);
         TreeNode p = null;

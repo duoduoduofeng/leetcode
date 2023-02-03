@@ -22,7 +22,10 @@ public class S_145_BinaryTreePostorderTraverse {
         while(nodes.size()>0) {
             p = nodes.peek(); // just get the last node but not pop it out
             if((p.left == null && p.right == null) ||
-                    (pre != null && (pre == p.left || pre == p.right))) {
+                    (pre != null && (pre == p.left || pre == p.right))) { // more efficient
+//            if((p.left == null && p.right == null) ||
+//                    (p.left != null && pre == p.left) ||
+//                    (p.right != null && pre == p.right)) { // more elegant
                 rs.add(p.val);
                 nodes.pop();
                 pre = p;

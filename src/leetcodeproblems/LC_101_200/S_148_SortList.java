@@ -9,7 +9,7 @@ public class S_148_SortList {
             return head;
         }
 
-        ListNode fast = head, slow = head, pre = head;
+        ListNode fast = head, slow = head, pre = null; // pre should be null and won't cause nullpointerexception.
 
         while(fast != null && fast.next != null) {
             pre = slow; // slow's parent pointer
